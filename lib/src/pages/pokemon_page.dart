@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:my_app/src/features/pokemon/controller/controller_random_pokemon.dart';
 
 class PokemonPage extends StatefulWidget {
   const PokemonPage({super.key});
@@ -9,23 +8,12 @@ class PokemonPage extends StatefulWidget {
   State<PokemonPage> createState() => _PokemonPageState();
 }
 
-Future<Map<String, dynamic>> fetchRandomPokemon() async {
-  final randomId = (1 + (1000 * (DateTime.now().millisecondsSinceEpoch % 1000) / 1000)).toInt();
-  final response = await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/$randomId'));
-
-  if (response.statusCode == 200) {
-    return jsonDecode(response.body);
-  } else {
-    throw Exception('Inconsistência ao carregar Pokemon');
-  }
-}
-
 class _PokemonPageState extends State<PokemonPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Obter Pokemon Aleatório')),
+        title: const Text('Pokemon Info'),
       ),
       body: Center(
         child: ElevatedButton(
@@ -63,7 +51,7 @@ class _PokemonPageState extends State<PokemonPage> {
               );
             }
           },
-          child: Text('Get Random Pokemon'),
+          child: Text('Sortear Pokémon'),
         ),
       ),
     );
