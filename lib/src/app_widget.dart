@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/components/navbar_itens.dart';
-import 'package:my_app/navbar_pages/pokemon_page.dart';
+import 'package:my_app/src/pages/pokemon_page.dart';
+import 'package:my_app/src/widgets/navbar_itens.dart';
 
-class PrincipalPage extends StatefulWidget {
-  const PrincipalPage({super.key});
+class AppWidget extends StatefulWidget {
+  const AppWidget({super.key});
 
   @override
-  State<PrincipalPage> createState() => _PrincipalPageState();
+  State<AppWidget> createState() => _AppWidgetState();
 }
 
-class _PrincipalPageState extends State<PrincipalPage> {
+class _AppWidgetState extends State<AppWidget> {
   int _currentPage = 1;
 
   static const List<Widget> _pages = <Widget>[
